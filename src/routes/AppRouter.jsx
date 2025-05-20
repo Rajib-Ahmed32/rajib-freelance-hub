@@ -9,14 +9,30 @@ import UpdateTask from "../pages/UpdateTask";
 import Register from "../pages/Register";
 import NotFound from "../pages/NotFound";
 
+import PrivateRoute from "../routes/PrivateRoute";
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "/add-task", element: <AddTask /> },
-      { path: "/posted-task", element: <MyPostedTasks /> },
+      {
+        path: "/add-task",
+        element: (
+          <PrivateRoute>
+            <AddTask />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/posted-task",
+        element: (
+          <PrivateRoute>
+            <MyPostedTasks />
+          </PrivateRoute>
+        ),
+      },
       { path: "/task-details/:taskId", element: <TaskDetails /> },
       { path: "/update-task/:taskId", element: <UpdateTask /> },
       { path: "/login", element: <Login /> },
