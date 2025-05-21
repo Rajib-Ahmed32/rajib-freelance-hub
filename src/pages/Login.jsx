@@ -2,7 +2,7 @@ import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 import { Label } from "../components/ui/label";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
@@ -10,6 +10,10 @@ import { toast } from "react-hot-toast";
 import useGoogleLogin from "../hooks/useGoogleLogin";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
   const handleGoogleLogin = useGoogleLogin();
   const { login } = useAuth();
   const [email, setEmail] = useState("");
@@ -22,6 +26,7 @@ const Login = () => {
       toast.success("Logged in successfully!");
       setEmail("");
       setPassword("");
+      navigate(from, { replace: true });
     } catch (error) {
       toast.error(error.message);
     }

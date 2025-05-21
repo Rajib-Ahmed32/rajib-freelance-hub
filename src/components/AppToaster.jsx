@@ -3,9 +3,9 @@ import { Toaster } from "react-hot-toast";
 const AppToaster = () => {
   return (
     <Toaster
-      position="top-right"
+      position="top-center"
       containerStyle={{
-        top: "50%",
+        top: "40%",
         right: 20,
         transform: "translateY(-50%)",
       }}
