@@ -8,8 +8,8 @@ import TaskDetails from "../pages/TaskDetails";
 import UpdateTask from "../pages/UpdateTask";
 import Register from "../pages/Register";
 import NotFound from "../pages/NotFound";
-
 import PrivateRoute from "../routes/PrivateRoute";
+import BrowseTasks from "../pages/BrowseTasks";
 
 const router = createBrowserRouter([
   {
@@ -33,8 +33,12 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      { path: "/task-details/:taskId", element: <TaskDetails /> },
+      {
+        path: "/task-details/:taskId",
+        element: <TaskDetails />,
+      },
       { path: "/update-task/:taskId", element: <UpdateTask /> },
+      { path: "/browse-tasks", element: <BrowseTasks /> },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
       { path: "*", element: <NotFound /> },

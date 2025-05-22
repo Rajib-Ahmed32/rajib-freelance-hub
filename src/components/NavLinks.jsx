@@ -9,6 +9,13 @@ const NavLinks = ({ setIsMenuOpen, handleProtectedNavClick }) => {
       <Link to="/" onClick={() => setIsMenuOpen(false)} className={baseClasses}>
         Home
       </Link>
+      <Link
+        to="/browse-tasks"
+        onClick={() => setIsMenuOpen(false)}
+        className={baseClasses}
+      >
+        Browse Tasks
+      </Link>
 
       <Link
         to="/add-task"
@@ -30,14 +37,6 @@ const NavLinks = ({ setIsMenuOpen, handleProtectedNavClick }) => {
         className={baseClasses}
       >
         Posted Tasks
-      </Link>
-
-      <Link
-        to="/browse-tasks"
-        onClick={() => setIsMenuOpen(false)}
-        className={baseClasses}
-      >
-        Browse Tasks
       </Link>
     </>
   );

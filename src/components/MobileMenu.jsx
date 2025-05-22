@@ -44,7 +44,6 @@ const MobileMenu = ({
       </button>
       {user && <UserAvatar user={user} handleLogout={handleLogout} />}
 
-      {/* Dropdown */}
       {isMenuOpen && (
         <div className="absolute border border-2 top-12 right-0 bg-white shadow-xl rounded-md px-4 py-3 z-50 w-60 space-y-2 text-sm">
           <nav className="flex flex-col gap-2">
