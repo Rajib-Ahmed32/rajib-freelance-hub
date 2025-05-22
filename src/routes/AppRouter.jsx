@@ -34,10 +34,10 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/task-details/:taskId",
+        path: "/task-details/:id",
         element: <TaskDetails />,
       },
-      { path: "/update-task/:taskId", element: <UpdateTask /> },
+      { path: "/update-task/:id", element: <UpdateTask /> },
       { path: "/browse-tasks", element: <BrowseTasks /> },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
