@@ -1,4 +1,3 @@
-// src/pages/BrowseTasks.jsx
 import React, { useEffect, useState } from "react";
 import { Card, CardContent } from "../components/ui/card";
 import { Button } from "../components/ui/button";
@@ -18,10 +17,6 @@ const BrowseTasks = () => {
         console.error("Error fetching tasks:", err);
       });
   }, []);
-
-  useEffect(() => {
-    console.log("Updated tasks state:", tasks);
-  }, [tasks]);
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-10">
