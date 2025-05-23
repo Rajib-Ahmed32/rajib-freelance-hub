@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Post Your Task Easily",
+    "description": "Create and publish tasks in minutes with our user-friendly interface.",
+    "image": "/images/task.jpg"
+  },
+  {
+    "title": "Browse Talent Globally",
+    "description": "Find skilled freelancers from a wide range of categories and expertise.",
+    "image": "/images/talent-find.jpg"
+  },
+  {
+    "title": "Secure Bidding System",
+    "description": "Get competitive bids from freelancers while keeping your task details safe.",
+    "image": "/images/secure-bidding.webp"
+  },
+  {
+    "title": "Track Your Tasks",
+    "description": "Manage and update your posted tasks in one centralized dashboard.",
+    "image": "/images/track-task.jpg"
+  }
+]
