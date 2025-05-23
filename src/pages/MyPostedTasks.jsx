@@ -3,20 +3,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { useAuth } from "../context/AuthProvider";
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "../components/ui/table";
-import { Button } from "../components/ui/button";
+import TasksTable from "../components/TasksTable";
 
 const MyPostedTasks = () => {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
+
   const navigate = useNavigate();
   const { user, loading: authLoading } = useAuth();
 
@@ -43,13 +35,17 @@ const MyPostedTasks = () => {
       });
   }, [authLoading, user?.email]);
 
-  const handleDelete = (id) => {
-    if (!window.confirm("Are you sure you want to delete this task?")) return;
+  const handleDelete = (task) => {
+    const confirmDelete = window.confirm(
+      `Are you sure you want to delete the task "${task.title}"? This action cannot be undone.`
+    );
+
+    if (!confirmDelete) return;
 
     axios
-      .delete(`http://localhost:3000/api/tasks/${id}`)
+      .delete(`http://localhost:3000/api/tasks/${task._id}`)
       .then(() => {
-        setTasks((prev) => prev.filter((task) => task._id !== id));
+        setTasks((prev) => prev.filter((t) => t._id !== task._id));
         toast.success("Task deleted successfully");
       })
       .catch((err) => {
@@ -59,66 +55,42 @@ const MyPostedTasks = () => {
   };
 
   if (authLoading)
-    return <p className="text-center py-10">Authenticating...</p>;
+    return (
+      <p className="text-center py-10 text-gray-700 dark:text-gray-300">
+        Authenticating...
+      </p>
+    );
 
   if (!user?.email)
     return (
-      <p className="text-center py-10 text-red-500">
+      <p className="text-center py-10 text-red-500 dark:text-red-400">
         You are not authorized to view this page.
       </p>
     );
 
-  if (loading) return <p className="text-center py-10">Loading tasks...</p>;
+  if (loading)
+    return (
+      <p className="text-center py-10 text-gray-700 dark:text-gray-300">
+        Loading tasks...
+      </p>
+    );
 
   if (tasks.length === 0)
-    return <p className="text-center py-10">No tasks posted yet.</p>;
+    return (
+      <p className="text-center py-10 text-gray-600 dark:text-gray-400">
+        No tasks posted yet.
+      </p>
+    );
 
   return (
-    <div className="max-w-6xl mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6 text-center text-blue-600">
-        My Posted Tasks
-      </h1>
-      <Table>
-        <TableCaption>Your tasks posted to the marketplace</TableCaption>
-        <TableHeader>
-          <TableRow>
-            <TableHead>Title</TableHead>
-            <TableHead>Category</TableHead>
-            <TableHead>Budget</TableHead>
-            <TableHead>Deadline</TableHead>
-            <TableHead className="text-center">Actions</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {tasks.map((task) => (
-            <TableRow key={task._id}>
-              <TableCell>{task.title}</TableCell>
-              <TableCell>{task.category}</TableCell>
-              <TableCell>${task.budget}</TableCell>
-              <TableCell>{task.deadline}</TableCell>
-              <TableCell className="flex justify-center gap-2">
-                <Button
-                  size="sm"
-                  variant="outline"
-                  onClick={() => navigate(`/update-task/${task._id}`)}
-                >
-                  Update
-                </Button>
-                <Button
-                  size="sm"
-                  variant="destructive"
-                  onClick={() => handleDelete(task._id)}
-                >
-                  Delete
-                </Button>
-                <Button size="sm" variant="secondary">
-                  Bids
-                </Button>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+    <div className="min-h-screen bg-[#e8faf4] dark:bg-gray-900 transition-colors duration-300">
+      <div className="w-full min-h-[300px] md:min-h-[600px] max-w-6xl mx-auto px-4  py-10 bg-white dark:bg-gray-900 rounded-lg shadow">
+        <h1 className="text-3xl font-bold mb-6 text-center text-[#0f172a] dark:text-white">
+          My Posted Tasks
+        </h1>
+
+        <TasksTable tasks={tasks} onDelete={handleDelete} navigate={navigate} />
+      </div>
     </div>
   );
 };

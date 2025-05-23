@@ -33,13 +33,17 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4">
-      <Card className="w-full max-w-md">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors p-4">
+      <Card className="w-full max-w-md bg-white dark:bg-gray-800 dark:border-gray-700 shadow-lg transition-colors">
         <CardContent className="p-6 space-y-5">
-          <h2 className="text-2xl font-bold text-center">Login</h2>
+          <h2 className="text-2xl font-bold text-center text-gray-900 dark:text-white">
+            Login
+          </h2>
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email" className="dark:text-gray-300">
+                Email
+              </Label>
               <Input
                 id="email"
                 type="email"
@@ -50,7 +54,9 @@ const Login = () => {
               />
             </div>
             <div>
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password" className="dark:text-gray-300">
+                Password
+              </Label>
               <Input
                 id="password"
                 type="password"
@@ -61,7 +67,7 @@ const Login = () => {
               />
             </div>
             <div className="text-right">
-              <Link className="text-blue-500 hover:underline text-sm">
+              <Link className="text-blue-500 hover:underline text-sm dark:text-blue-400">
                 Forgot password?
               </Link>
             </div>
@@ -78,9 +84,12 @@ const Login = () => {
             <FcGoogle className="text-lg" /> Continue with Google
           </Button>
 
-          <p className="text-center text-sm">
+          <p className="text-center text-sm text-gray-700 dark:text-gray-300">
             Don&apos;t have an account?{" "}
-            <Link to="/register" className="text-blue-500 hover:underline">
+            <Link
+              to="/register"
+              className="text-blue-500 hover:underline dark:text-blue-400"
+            >
               Register
             </Link>
           </p>

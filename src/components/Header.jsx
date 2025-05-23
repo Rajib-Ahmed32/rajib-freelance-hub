@@ -39,11 +39,11 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full shadow  px-4 py-6 relative z-50">
+    <header className="w-full shadow bg-white dark:bg-gray-900 px-4 py-6 relative z-50">
       <div className="flex justify-between items-center">
         <Logo />
 
-        <nav className="hidden lg:flex gap-3 items-center font-medium text-slate-800">
+        <nav className="hidden lg:flex gap-3 items-center font-medium text-slate-800 dark:text-gray-200">
           <NavLinks
             user={user}
             setIsMenuOpen={setIsMenuOpen}
@@ -51,13 +51,14 @@ const Header = () => {
           />
         </nav>
 
-        <div className="hidden lg:flex items-center gap-5">
+        <div className="hidden lg:flex items-center gap-5 text-slate-800 dark:text-gray-200">
           {!user ? (
             <AuthButtons navigate={navigate} setIsMenuOpen={setIsMenuOpen} />
           ) : (
             <UserAvatar user={user} handleLogout={handleLogout} />
           )}
         </div>
+
         <MobileMenu
           isMenuOpen={isMenuOpen}
           setIsMenuOpen={setIsMenuOpen}

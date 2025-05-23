@@ -19,13 +19,17 @@ const Register = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4">
-      <Card className="w-full max-w-md">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors p-4">
+      <Card className="w-full max-w-md bg-white dark:bg-gray-800 dark:border-gray-700 shadow-lg transition-colors">
         <CardContent className="p-6 space-y-5">
-          <h2 className="text-2xl font-bold text-center">Register</h2>
+          <h2 className="text-2xl font-bold text-center text-gray-900 dark:text-white">
+            Register
+          </h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <Label htmlFor="name">Name</Label>
+              <Label htmlFor="name" className="dark:text-gray-300">
+                Name
+              </Label>
               <Input
                 id="name"
                 type="text"
@@ -36,7 +40,9 @@ const Register = () => {
               />
             </div>
             <div>
-              <Label htmlFor="photoURL">Photo URL</Label>
+              <Label htmlFor="photoURL" className="dark:text-gray-300">
+                Photo URL
+              </Label>
               <Input
                 id="photoURL"
                 type="text"
@@ -46,7 +52,9 @@ const Register = () => {
               />
             </div>
             <div>
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email" className="dark:text-gray-300">
+                Email
+              </Label>
               <Input
                 id="email"
                 type="email"
@@ -57,7 +65,9 @@ const Register = () => {
               />
             </div>
             <div>
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password" className="dark:text-gray-300">
+                Password
+              </Label>
               <Input
                 id="password"
                 type="password"
@@ -80,9 +90,12 @@ const Register = () => {
             <FcGoogle className="text-lg" /> Continue with Google
           </Button>
 
-          <p className="text-center text-sm">
+          <p className="text-center text-sm text-gray-700 dark:text-gray-300">
             Already have an account?{" "}
-            <Link to="/login" className="text-blue-500 hover:underline">
+            <Link
+              to="/login"
+              className="text-blue-500 hover:underline dark:text-blue-400"
+            >
               Login
             </Link>
           </p>
