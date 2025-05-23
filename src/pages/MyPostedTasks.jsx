@@ -32,7 +32,7 @@ const MyPostedTasks = () => {
         setLoading(false);
       })
       .catch((err) => {
-        console.error("Error fetching tasks:", err);
+        console.error("Error fetching tasks:", tasks, err);
         setLoading(false);
       });
   }, [authLoading, user?.email]);

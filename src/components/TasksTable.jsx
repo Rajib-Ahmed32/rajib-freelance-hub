@@ -8,8 +8,28 @@ import {
   TableRow,
 } from "../components/ui/table";
 import { Button } from "../components/ui/button";
+import { toast } from "react-hot-toast";
 
 const TasksTable = ({ tasks, onDelete, navigate }) => {
+  const handleShowBids = (taskId) => {
+    console.log("Bids button clicked for Task ID:", taskId); // Add this line
+
+    const storedBids = JSON.parse(localStorage.getItem("taskBids")) || [];
+    console.log("Stored Bids from localStorage:", storedBids); // Add this line
+
+    const matched = storedBids.find((item) => item.id === taskId);
+
+    if (matched) {
+      toast.success(
+        `You have placed ${matched.bidCount} ${
+          matched.bidCount === 1 ? "bid" : "bids"
+        } on this task.`
+      );
+    } else {
+      toast("You haven’t placed any bids on this task.");
+    }
+  };
+
   return (
     <div className="rounded-lg overflow-x-auto border w-full">
       <Table>
@@ -66,6 +86,7 @@ const TasksTable = ({ tasks, onDelete, navigate }) => {
                 <Button
                   size="sm"
                   className="bg-[#10b981] text-white text-xs px-2 py-1 rounded"
+                  onClick={() => handleShowBids(task._id)}
                 >
                   Bids
                 </Button>

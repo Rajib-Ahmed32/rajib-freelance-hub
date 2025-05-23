@@ -7,6 +7,7 @@ const TaskDetails = () => {
   const { id } = useParams();
   const [task, setTask] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [bidsCount, setBidsCount] = useState(0);
 
   useEffect(() => {
     fetch(`http://localhost:3000/api/tasks/${id}`)
@@ -20,12 +21,19 @@ const TaskDetails = () => {
       });
   }, [id]);
 
-  if (loading)
-    return (
-      <p className="text-center py-10 text-gray-700 dark:text-gray-300">
-        Loading...
-      </p>
-    );
+  const handleBid = () => {
+    const storedBids = JSON.parse(localStorage.getItem("taskBids")) || [];
+    const taskIndex = storedBids.findIndex((item) => item.id === id);
+
+    if (taskIndex !== -1) {
+      storedBids[taskIndex].bidCount += 1;
+      setBidsCount(storedBids[taskIndex].bidCount);
+    } else {
+      storedBids.push({ id, bidCount: 1 });
+      setBidsCount(1);
+    }
+    localStorage.setItem("taskBids", JSON.stringify(storedBids));
+  };
 
   if (!task)
     return (
@@ -35,8 +43,15 @@ const TaskDetails = () => {
     );
 
   return (
-    <div className=" px-12 py-12 pb-20 bg-[#e8faf4] dark:bg-gray-900 rounded-lg shadow-lg  transition-colors duration-300">
+    <div className="px-12 py-12 pb-20 bg-[#e8faf4] dark:bg-gray-900 rounded-lg shadow-lg transition-colors duration-300">
       <div className="relative mb-10">
+        {bidsCount > 0 && (
+          <p className="text-center mb-4 text-lg font-medium text-[#0f172a] dark:text-white">
+            You bid for {bidsCount}{" "}
+            {bidsCount === 1 ? "opportunity" : "opportunities"}.
+          </p>
+        )}
+
         <h1 className="text-4xl font-extrabold text-center text-[#0f172a] dark:text-white">
           {task.title}
         </h1>
@@ -84,7 +99,10 @@ const TaskDetails = () => {
             {task.userEmail}
           </p>
           <div className="text-center mt-8">
-            <Button className="bg-[#10b981] hover:bg-[#0f9b6e] text-white px-6 py-2 rounded-lg text-lg font-semibold transition-colors duration-300">
+            <Button
+              onClick={handleBid}
+              className="bg-[#10b981] hover:bg-[#0f9b6e] text-white px-6 py-2 rounded-lg text-lg font-semibold transition-colors duration-300"
+            >
               Bid on Task
             </Button>
           </div>
