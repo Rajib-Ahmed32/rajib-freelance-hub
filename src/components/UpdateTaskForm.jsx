@@ -53,7 +53,11 @@ const UpdateTaskForm = ({
           type="date"
           id="deadline"
           name="deadline"
-          defaultValue={task.deadline}
+          defaultValue={
+            task.deadline
+              ? new Date(task.deadline).toISOString().substring(0, 10)
+              : ""
+          }
           required
         />
       </div>

@@ -12,10 +12,10 @@ import { toast } from "react-hot-toast";
 
 const TasksTable = ({ tasks, onDelete, navigate }) => {
   const handleShowBids = (taskId) => {
-    console.log("Bids button clicked for Task ID:", taskId); // Add this line
+    console.log("Bids button clicked for Task ID:", taskId);
 
     const storedBids = JSON.parse(localStorage.getItem("taskBids")) || [];
-    console.log("Stored Bids from localStorage:", storedBids); // Add this line
+    console.log("Stored Bids from localStorage:", storedBids);
 
     const matched = storedBids.find((item) => item.id === taskId);
 
@@ -65,8 +65,11 @@ const TasksTable = ({ tasks, onDelete, navigate }) => {
                 ${task.budget}
               </TableCell>
               <TableCell className="min-w-[120px] text-sm md:text-base">
-                {task.deadline}
+                {task.deadline
+                  ? new Date(task.deadline).toLocaleDateString("en-GB")
+                  : "N/A"}
               </TableCell>
+
               <TableCell className="min-w-[160px] flex flex-wrap justify-center gap-2 py-3">
                 <Button
                   size="sm"

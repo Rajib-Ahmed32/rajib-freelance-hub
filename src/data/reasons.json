@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Secure Platform",
+    "description": "We ensure all transactions are encrypted and your data is protected with industry-grade security measures.",
+    "icon": "FaLock"
+  },
+  {
+    "title": "Skilled Freelancers",
+    "description": "Our community is filled with experienced professionals ready to deliver quality work on time.",
+    "icon": "FaBullseye"
+  },
+  {
+    "title": "24/7 Support",
+    "description": "Get help whenever you need it with our always-available customer support team.",
+    "icon": "FaHeadset"
+  },
+  {
+    "title": "Flexible Payments",
+    "description": "Choose the payment method that suits you best, with flexible milestones and escrow protection.",
+    "icon": "FaCreditCard"
+  },
+  {
+    "title": "Trusted by Clients",
+    "description": "Thousands of satisfied clients trust our platform for hiring and task completion.",
+    "icon": "FaHandshake"
+  },
+  {
+    "title": "Easy Task Management",
+    "description": "Track bids, milestones, and progress in one place with our streamlined task dashboard.",
+    "icon": "FaClipboardList"
+  }
+]

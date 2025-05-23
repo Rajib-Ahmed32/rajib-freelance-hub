@@ -3,6 +3,7 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import bannerSlides from "../data/bannerSlides.json";
+import { Typewriter } from "react-simple-typewriter";
 
 function BannerSlider() {
   return (
@@ -31,7 +32,15 @@ function BannerSlider() {
                 <div className="absolute inset-0 bg-black/60 backdrop-blur-sm flex flex-col justify-center items-center lg:items-start p-6 text-white">
                   <div>
                     <h2 className="text-2xl font-bold text-white">
-                      {item.title}
+                      <Typewriter
+                        words={[item.title]}
+                        loop={0}
+                        cursor
+                        cursorStyle=""
+                        typeSpeed={50}
+                        deleteSpeed={50}
+                        delaySpeed={2000}
+                      />
                     </h2>
                     <p className="mt-2 text-white/90">{item.description}</p>
                   </div>

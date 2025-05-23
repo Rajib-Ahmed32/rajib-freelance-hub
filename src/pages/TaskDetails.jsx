@@ -78,8 +78,9 @@ const TaskDetails = () => {
             <span className="font-semibold text-gray-900 dark:text-white">
               Deadline:
             </span>{" "}
-            {task.deadline}
+            {new Date(task.deadline).toLocaleDateString("en-GB")}
           </p>
+
           <p>
             <span className="font-semibold text-gray-900 dark:text-white">
               Budget:
