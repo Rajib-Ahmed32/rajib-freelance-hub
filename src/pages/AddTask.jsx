@@ -37,13 +37,16 @@ const AddTask = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:3000/api/tasks", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(newTask),
-      });
+      const res = await fetch(
+        "https://task-marketplace-server.onrender.com/api/tasks",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(newTask),
+        }
+      );
       const data = await res.json();
       console.log("Task added:", data);
       toast.success("Task added successfully!");

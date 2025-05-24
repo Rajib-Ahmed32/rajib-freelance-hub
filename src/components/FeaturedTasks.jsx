@@ -16,7 +16,7 @@ const FeaturedTasks = () => {
     const fetchTasks = async () => {
       try {
         const res = await fetch(
-          "http://localhost:3000/api/tasks?featured=true"
+          "https://task-marketplace-server.onrender.com/api/tasks?featured=true"
         );
         if (!res.ok) throw new Error("Failed to fetch tasks");
         const data = await res.json();

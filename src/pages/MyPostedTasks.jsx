@@ -23,7 +23,7 @@ const MyPostedTasks = () => {
     }
 
     axios
-      .get("http://localhost:3000/api/tasks")
+      .get("https://task-marketplace-server.onrender.com/api/tasks")
       .then((res) => {
         const userTasks = res.data.filter(
           (task) => task.userEmail === user.email
@@ -43,7 +43,9 @@ const MyPostedTasks = () => {
     if (!confirmDelete) return;
 
     axios
-      .delete(`http://localhost:3000/api/tasks/${task._id}`)
+      .delete(
+        `https://task-marketplace-server.onrender.com/api/tasks/${task._id}`
+      )
       .then(() => {
         setTasks((prev) => prev.filter((t) => t._id !== task._id));
         toast.success("Task deleted successfully");

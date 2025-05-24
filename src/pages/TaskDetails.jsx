@@ -10,7 +10,7 @@ const TaskDetails = () => {
   const [bidsCount, setBidsCount] = useState(0);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/tasks/${id}`)
+    fetch(`https://task-marketplace-server.onrender.com/api/tasks/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setTask(data);

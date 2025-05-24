@@ -12,7 +12,7 @@ const UpdateTask = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/tasks/${id}`)
+    fetch(`https://task-marketplace-server.onrender.com/api/tasks/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setTask(data);
@@ -35,11 +35,14 @@ const UpdateTask = () => {
     };
 
     try {
-      const res = await fetch(`http://localhost:3000/api/tasks/${id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(updatedTask),
-      });
+      const res = await fetch(
+        `https://task-marketplace-server.onrender.com/api/tasks/${id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updatedTask),
+        }
+      );
 
       const result = await res.json();
       if (res.ok) {
