@@ -1,0 +1,26 @@
+[
+  {
+    "icon": "FaTasks",
+    "number": 1250,
+    "suffix": "+",
+    "label": "Tasks Posted"
+  },
+  {
+    "icon": "FaUsers",
+    "number": 850,
+    "suffix": "+",
+    "label": "Freelancers"
+  },
+  {
+    "icon": "FaCheckCircle",
+    "number": 980,
+    "suffix": "+",
+    "label": "Tasks Completed"
+  },
+  {
+    "icon": "FaClock",
+    "number": 99.9,
+    "suffix": "%",
+    "label": "On-time Delivery"
+  }
+]
