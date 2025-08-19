@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import toast from "react-hot-toast";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 const BrowseTasks = () => {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [sort, setSort] = useState("none");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,6 +31,13 @@ const BrowseTasks = () => {
     fetchTasks();
   }, []);
 
+  const sortedTasks = useMemo(() => {
+    if (sort === "price-asc") return [...tasks].sort((a, b) => a.budget - b.budget);
+    if (sort === "price-desc") return [...tasks].sort((a, b) => b.budget - a.budget);
+    if (sort === "deadline-asc") return [...tasks].sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+    return tasks;
+  }, [tasks, sort]);
+
   return (
     <div className="min-h-screen w-full  mx-auto bg-[#e8faf4] dark:bg-gray-900 transition-colors duration-300 px-4 py-14">
       <div className="relative mb-10">
@@ -40,6 +48,23 @@ const BrowseTasks = () => {
           <div className="w-24 h-1 rounded-full bg-[#10b981] dark:bg-[#059669]"></div>
         </div>
       </div>
+
+      {!loading && tasks.length > 0 && (
+        <div className="max-w-6xl mx-auto mb-6 flex items-center justify-end gap-3">
+          <label htmlFor="sort" className="text-sm text-gray-700 dark:text-gray-300">Sort by:</label>
+          <select
+            id="sort"
+            value={sort}
+            onChange={(e) => setSort(e.target.value)}
+            className="text-sm rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 px-3 py-2"
+          >
+            <option value="none">Default</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="deadline-asc">Deadline: Soonest</option>
+          </select>
+        </div>
+      )}
 
       {loading && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -65,12 +90,12 @@ const BrowseTasks = () => {
         </p>
       )}
 
-      {!loading && tasks.length > 0 && (
+      {!loading && sortedTasks.length > 0 && (
         <div className="grid max-w-6xl mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {tasks.map((task) => (
+          {sortedTasks.map((task) => (
             <Card
               key={task._id}
-              className="shadow-md flex flex-col h-full transition-transform duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-[#10b981] dark:hover:border-[#059669] border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800"
+              className="shadow-md flex flex-col h-full transition-transform duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-[#10b981] dark:hover:border-[#059669] border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-xl"
             >
               <CardContent className="p-8 md:p-5 flex flex-col justify-between h-full">
                 <div className="space-y-2">
@@ -89,7 +114,7 @@ const BrowseTasks = () => {
                 </div>
                 <Button
                   onClick={() => navigate(`/task-details/${task._id}`)}
-                  className="mt-4 text-xs px-3 py-1 rounded bg-[#10b981] hover:bg-[#0f766e] dark:bg-[#059669] dark:hover:bg-[#047857] text-white self-start transition duration-200"
+                  className="mt-4 text-xs px-3 py-1 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white self-start transition duration-200"
                 >
                   See Details
                 </Button>

@@ -1,5 +1,6 @@
 import React from "react";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -20,19 +21,19 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-3">Company</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#about" className="hover:text-green-500 transition">
+                <Link to="/about" className="hover:text-green-500 transition">
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-green-500 transition">
-                  Services
-                </a>
+                <Link to="/browse-tasks" className="hover:text-green-500 transition">
+                  Browse Tasks
+                </Link>
               </li>
               <li>
-                <a href="#contact" className="hover:text-green-500 transition">
-                  Contact
-                </a>
+                <Link to="/register" className="hover:text-green-500 transition">
+                  Get Started
+                </Link>
               </li>
             </ul>
           </div>
@@ -40,17 +41,17 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-3">Support</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#help" className="hover:text-green-500 transition">
+                <Link to="/browse-tasks" className="hover:text-green-500 transition">
                   Help Center
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#terms" className="hover:text-green-500 transition">
+                <a href="https://www.freeprivacypolicy.com/live/" target="_blank" rel="noopener noreferrer" className="hover:text-green-500 transition">
                   Terms of Service
                 </a>
               </li>
               <li>
-                <a href="#privacy" className="hover:text-green-500 transition">
+                <a href="https://www.privacypolicies.com/" target="_blank" rel="noopener noreferrer" className="hover:text-green-500 transition">
                   Privacy Policy
                 </a>
               </li>

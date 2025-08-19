@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-const NavLinks = ({ setIsMenuOpen, handleProtectedNavClick }) => {
+const NavLinks = ({ setIsMenuOpen, handleProtectedNavClick, user }) => {
   const baseClasses =
-    "block text-sm font-medium px-2 py-1 rounded hover:text-indigo-600 hover:bg-slate-100 transition";
+    "block text-sm font-medium px-3 py-2 rounded-md hover:text-emerald-600 hover:bg-emerald-50 dark:hover:bg-gray-800 transition";
 
   return (
     <>
@@ -16,28 +16,39 @@ const NavLinks = ({ setIsMenuOpen, handleProtectedNavClick }) => {
       >
         Browse Tasks
       </Link>
-
       <Link
-        to="/add-task"
-        onClick={(e) => {
-          handleProtectedNavClick(e, "/add-task");
-          setIsMenuOpen(false);
-        }}
+        to="/about"
+        onClick={() => setIsMenuOpen(false)}
         className={baseClasses}
       >
-        Add Task
+        About
       </Link>
 
-      <Link
-        to="/posted-task"
-        onClick={(e) => {
-          handleProtectedNavClick(e, "/posted-task");
-          setIsMenuOpen(false);
-        }}
-        className={baseClasses}
-      >
-        Posted Tasks
-      </Link>
+      {user && (
+        <>
+          <Link
+            to="/add-task"
+            onClick={(e) => {
+              handleProtectedNavClick(e, "/add-task");
+              setIsMenuOpen(false);
+            }}
+            className={baseClasses}
+          >
+            Add Task
+          </Link>
+
+          <Link
+            to="/posted-task"
+            onClick={(e) => {
+              handleProtectedNavClick(e, "/posted-task");
+              setIsMenuOpen(false);
+            }}
+            className={baseClasses}
+          >
+            Posted Tasks
+          </Link>
+        </>
+      )}
     </>
   );
 };

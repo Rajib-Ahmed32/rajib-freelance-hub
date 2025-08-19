@@ -67,7 +67,7 @@ const Login = () => {
               />
             </div>
             <div className="text-right">
-              <Link className="text-blue-500 hover:underline text-sm dark:text-blue-400">
+              <Link className="text-emerald-600 hover:underline text-sm dark:text-emerald-400">
                 Forgot password?
               </Link>
             </div>
@@ -85,10 +85,10 @@ const Login = () => {
           </Button>
 
           <p className="text-center text-sm text-gray-700 dark:text-gray-300">
-            Don&apos;t have an account?{" "}
+            Don&apos;t have an account? {""}
             <Link
               to="/register"
-              className="text-blue-500 hover:underline dark:text-blue-400"
+              className="text-emerald-600 hover:underline dark:text-emerald-400"
             >
               Register
             </Link>

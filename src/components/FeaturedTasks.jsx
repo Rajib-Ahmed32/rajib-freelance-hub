@@ -49,7 +49,7 @@ const FeaturedTasks = () => {
             .map((_, idx) => (
               <Card
                 key={idx}
-                className="p-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-sm animate-pulse"
+                className="p-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-xl shadow-sm animate-pulse"
               >
                 <Skeleton height={20} width={"70%"} />
                 <Skeleton height={14} width={"45%"} className="my-2" />
@@ -101,7 +101,7 @@ const FeaturedTasks = () => {
                   </div>
                   <Button
                     onClick={() => navigate(`/task-details/${task._id}`)}
-                    className="mt-4 px-4 py-1 rounded-md bg-gradient-to-r from-[#10b981] to-[#047857] hover:from-[#047857] hover:to-[#065f46] text-white font-semibold tracking-wide shadow-sm transition duration-300 self-start text-sm"
+                    className="mt-4 px-4 py-1 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white font-semibold tracking-wide shadow-sm transition duration-300 self-start text-sm"
                   >
                     See Details
                   </Button>
