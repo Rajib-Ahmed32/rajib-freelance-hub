@@ -82,7 +82,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #e8faf4;
+  background-color: hsl(var(--background));
 }
 
 .swiper-pagination-bullet {

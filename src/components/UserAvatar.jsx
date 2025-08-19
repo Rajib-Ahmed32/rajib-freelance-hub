@@ -32,7 +32,8 @@ const UserAvatar = ({ user, handleLogout }) => {
 
       <Button
         size="sm"
-        className="hidden px-4 py-2 font-bold lg:block bg-rose-600 hover:bg-rose-700 text-white"
+        variant="outline"
+        className="hidden px-4 py-2 font-bold lg:block border-emerald-500 text-emerald-600 hover:bg-emerald-50"
         onClick={handleLogout}
       >
         Log out

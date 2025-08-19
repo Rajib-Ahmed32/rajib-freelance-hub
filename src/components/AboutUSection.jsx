@@ -3,10 +3,10 @@ import FeatureCard from "../components/FeatureCard";
 
 export default function AboutUsSection() {
   return (
-    <section className="py-20 bg-gradient-to-r from-yellow-50 to-yellow-100 dark:from-gray-900 dark:to-gray-800">
+    <section className="py-20 bg-gradient-to-r from-emerald-50 to-emerald-100 dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-7xl mx-auto px-6 lg:px-0 grid lg:grid-cols-2 gap-16 items-center">
         <div className="flex flex-col gap-8">
-          <h6 className="text-yellow-600 dark:text-yellow-400 text-lg font-semibold uppercase tracking-wide font-manrope">
+          <h6 className="text-emerald-600 dark:text-emerald-400 text-lg font-semibold uppercase tracking-wide font-manrope">
             About Us
           </h6>
           <h2 className="text-5xl font-extrabold font-manrope text-gray-900 dark:text-white leading-tight">
@@ -38,15 +38,15 @@ export default function AboutUsSection() {
             />
           </div>
 
-          <button className="w-48 py-3 rounded-full bg-gradient-to-r from-yellow-500 to-yellow-700 text-white font-semibold font-manrope hover:from-yellow-600 hover:to-yellow-800 transition-all duration-300 shadow-lg">
+          <button className="w-48 py-3 rounded-md bg-emerald-600 text-white font-semibold font-manrope hover:bg-emerald-700 transition-all duration-300 shadow">
             Learn More
           </button>
         </div>
 
         <div className="flex justify-center lg:justify-end">
-          <div className="w-full max-w-md rounded-3xl overflow-hidden shadow-xl border border-yellow-300 dark:border-yellow-600">
+          <div className="w-full max-w-md rounded-3xl overflow-hidden shadow-xl border border-emerald-200 dark:border-emerald-600">
             <img
-              src="/images/freelance-marketplace.webp"
+              src="/images/freelancer.png"
               alt="Freelance Task Marketplace"
               className="object-cover w-full h-full"
             />

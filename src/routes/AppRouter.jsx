@@ -10,6 +10,7 @@ import Register from "../pages/Register";
 import NotFound from "../pages/NotFound";
 import PrivateRoute from "../routes/PrivateRoute";
 import BrowseTasks from "../pages/BrowseTasks";
+import About from "../pages/About";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       { path: "/", element: <Home /> },
+      { path: "/about", element: <About /> },
       {
         path: "/add-task",
         element: (
