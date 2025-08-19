@@ -55,7 +55,7 @@ const TasksTable = ({ tasks, onDelete, navigate }) => {
         <TableBody>
           {tasks.map((task) => (
             <TableRow key={task._id}>
-              <TableCell className="min-w-[150px] font-medium text-sm md:text-base text-gray-900 dark:text-gray-100">
+              <TableCell className="min-w-[150px] font-medium text-sm md:text-base text-blue-700">
                 {task.title}
               </TableCell>
               <TableCell className="min-w-[120px] text-sm md:text-base">
@@ -73,7 +73,7 @@ const TasksTable = ({ tasks, onDelete, navigate }) => {
               <TableCell className="min-w-[160px] flex flex-wrap justify-center gap-2 py-3">
                 <Button
                   size="sm"
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs px-2 py-1 rounded-md"
+                  className="bg-[#10b981] text-white text-xs px-2 py-1 rounded"
                   onClick={() => navigate(`/update-task/${task._id}`)}
                 >
                   Update
@@ -81,15 +81,14 @@ const TasksTable = ({ tasks, onDelete, navigate }) => {
                 <Button
                   size="sm"
                   variant="destructive"
-                  className="text-xs px-2 py-1 rounded-md"
+                  className="text-xs px-2 py-1 rounded"
                   onClick={() => onDelete(task)}
                 >
                   Delete
                 </Button>
                 <Button
                   size="sm"
-                  variant="outline"
-                  className="text-xs px-2 py-1 rounded-md border-emerald-500 text-emerald-600 hover:bg-emerald-50"
+                  className="bg-[#10b981] text-white text-xs px-2 py-1 rounded"
                   onClick={() => handleShowBids(task._id)}
                 >
                   Bids

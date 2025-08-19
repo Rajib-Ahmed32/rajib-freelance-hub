@@ -39,15 +39,15 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full sticky top-0 inset-x-0 z-50 shadow bg-white/90 dark:bg-gray-900/90 backdrop-blur supports-[backdrop-filter]:bg-white/70">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <header className="w-full shadow bg-white dark:bg-gray-900 px-4 py-6 relative z-50">
+      <div className="flex justify-between items-center">
         <Logo />
 
         <nav className="hidden lg:flex gap-3 items-center font-medium text-slate-800 dark:text-gray-200">
           <NavLinks
+            user={user}
             setIsMenuOpen={setIsMenuOpen}
             handleProtectedNavClick={handleProtectedNavClick}
-            user={user}
           />
         </nav>
 

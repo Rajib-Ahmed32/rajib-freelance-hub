@@ -49,13 +49,13 @@ const MobileMenu = ({
       {isMenuOpen && (
         <div
           id="mobile-menu"
-          className="absolute border top-12 right-0 bg-white dark:bg-gray-900 shadow-xl rounded-md px-4 py-3 z-50 w-60 space-y-2 text-sm dark:text-gray-200 border-gray-200 dark:border-gray-700"
+          className="absolute border border-2 top-12 right-0 bg-white dark:bg-gray-900 shadow-xl rounded-md px-4 py-3 z-50 w-60 space-y-2 text-sm dark:text-gray-200"
         >
           <nav className="flex flex-col gap-2">
             <NavLinks
+              user={user}
               setIsMenuOpen={setIsMenuOpen}
               handleProtectedNavClick={handleProtectedNavClick}
-              user={user}
             />
           </nav>
 
@@ -69,8 +69,7 @@ const MobileMenu = ({
             ) : (
               <Button
                 size="sm"
-                variant="outline"
-                className="text-sm px-4 py-2 border-emerald-500 text-emerald-600 hover:bg-emerald-50"
+                className="bg-rose-600 hover:bg-rose-700 dark:bg-rose-700 dark:hover:bg-rose-800 text-white text-sm px-4 py-2"
                 onClick={() => {
                   handleLogout();
                   setIsMenuOpen(false);

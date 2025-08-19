@@ -91,10 +91,10 @@ const Register = () => {
           </Button>
 
           <p className="text-center text-sm text-gray-700 dark:text-gray-300">
-            Already have an account? {""}
+            Already have an account?{" "}
             <Link
               to="/login"
-              className="text-emerald-600 hover:underline dark:text-emerald-400"
+              className="text-blue-500 hover:underline dark:text-blue-400"
             >
               Login
             </Link>

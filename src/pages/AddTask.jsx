@@ -150,7 +150,7 @@ const AddTask = () => {
             <div className="col-span-1 md:col-span-2">
               <Button
                 type="submit"
-                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white transition-all mt-2"
+                className="w-full bg-[#10b981] hover:bg-[#0ea67b] dark:bg-[#059669] dark:hover:bg-[#047857] text-white transition-all mt-2"
               >
                 Post Task
               </Button>
